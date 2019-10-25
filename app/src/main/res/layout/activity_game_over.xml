@@ -8,15 +8,14 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="1012dp"
-        android:layout_height="568dp"
+        android:layout_width="666dp"
+        android:layout_height="215dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647"
-        app:srcCompat="@drawable/space" />
+        app:srcCompat="@drawable/gameover" />
 
     <Button
         android:id="@+id/restart"
@@ -24,28 +23,8 @@
         android:layout_height="wrap_content"
         android:text="Restart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="672dp"
-        android:layout_height="299dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/explosion08" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="152dp"
-        android:layout_height="85dp"
-        android:text="GAME OVER"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 </android.support.constraint.ConstraintLayout>

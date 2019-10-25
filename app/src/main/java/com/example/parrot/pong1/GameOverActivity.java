@@ -13,7 +13,7 @@ public class GameOverActivity extends AppCompatActivity {
 
     ImageView imageView;
     Button restart;
-    TextView textView;
+
 
     @SuppressLint("ResourceType")
     @Override

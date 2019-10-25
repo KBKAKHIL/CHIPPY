@@ -97,7 +97,7 @@ public class GameEngine extends SurfaceView implements Runnable {
         // This is optional. Use it to:
         //  - setup or configure your sprites
         //  - set the initial position of your sprites
-        this.player = new Player(getContext(), 100, 500);
+        this.player = new Player(getContext(), 100, 100);
         this.enemy = new Enemy(getContext(),1950,520);
 
         this.enemy1 = new Enemy1(getContext(),1700,500);
@@ -112,6 +112,7 @@ public class GameEngine extends SurfaceView implements Runnable {
         this.e18 = new Enemy1(getContext(),1775,500);
         this.e19 = new Enemy1(getContext(),1850,520);
         this.e20 = new Enemy1(getContext(),2000,400);
+        enemy1List.add(enemy1);
 
 
 
@@ -267,37 +268,47 @@ public class GameEngine extends SurfaceView implements Runnable {
             Rect bullet = this.player.getBullets().get(i);
 
             if (this.enemy.getHitbox().intersect(bullet)) {
-                this.enemy.setxPosition(3000);
-                this.enemy.setyPosition(2000);
-                this.enemy1.setxPosition(3000);
-                this.enemy1.setyPosition(2000);
+//                this.enemy.setxPosition(3000);
+//                this.enemy.setyPosition(2000);
+//                this.enemy1.setxPosition(3000);
+//                this.enemy1.setyPosition(2000);
+//
+//                this.e2.setxPosition(3000);
+//                this.e2.setyPosition(2000);
+//                this.e11.setxPosition(3000);
+//                this.e11.setyPosition(2000);
+//                this.e13.setxPosition(3000);
+//                this.e12.setxPosition(3000);
+//                this.e12.setyPosition(2000);
+//                this.e13.setyPosition(2000);
+//                this.e14.setxPosition(3000);
+//                this.e14.setyPosition(2000);
+//                this.e16.setxPosition(3000);
+//                this.e16.setyPosition(2000);
+//                this.e15.setxPosition(3000);
+//                this.e15.setyPosition(2000);
+//                this.e17.setxPosition(3000);
+//                this.e17.setyPosition(2000);
+//                this.e18.setxPosition(3000);
+//                this.e18.setyPosition(2000);
+//                this.e19.setxPosition(3000);
+//                this.e19.setyPosition(2000);
+//                this.e20.setxPosition(3000);
+//                this.e20.setyPosition(2000);
 
-                this.e2.setxPosition(3000);
-                this.e2.setyPosition(2000);
-                this.e11.setxPosition(3000);
-                this.e11.setyPosition(2000);
-                this.e13.setxPosition(3000);
-                this.e12.setxPosition(3000);
-                this.e12.setyPosition(2000);
-                this.e13.setyPosition(2000);
-                this.e14.setxPosition(3000);
-                this.e14.setyPosition(2000);
-                this.e16.setxPosition(3000);
-                this.e16.setyPosition(2000);
-                this.e15.setxPosition(3000);
-                this.e15.setyPosition(2000);
-                this.e17.setxPosition(3000);
-                this.e17.setyPosition(2000);
-                this.e18.setxPosition(3000);
-                this.e18.setyPosition(2000);
-                this.e19.setxPosition(3000);
-                this.e19.setyPosition(2000);
-                this.e20.setxPosition(3000);
-                this.e20.setyPosition(2000);
 
                 this.player.getBullets().remove(bullet);
                 this.enemy.getBullets().remove(enemy);
-                this.enemy.getBullets().remove(enemy1List);
+                this.enemy.getBullets().remove(e2);
+                this.enemy.getBullets().remove(e11);
+                this.enemy.getBullets().remove(e12);
+                this.enemy.getBullets().remove(e13);
+                this.enemy.getBullets().remove(e14);
+                this.enemy.getBullets().remove(e15);
+
+
+                this.enemy.getBullets().remove(enemy);
+
 
                 this.enemy .updateHitbox();
                 this.enemy1.updateHitbox();
@@ -318,12 +329,12 @@ public class GameEngine extends SurfaceView implements Runnable {
 
             }
 
-            if (EnemyLives == 0) {
-                getContext().startActivity(new Intent(getContext(),GameOverActivity.class));
-                paintbrush.setColor(Color.WHITE);
-                canvas.drawText("WINNER", screenHeight / 2,screenWidth / 2,paintbrush);
-
-            }
+//            if (EnemyLives == 0) {
+//                getContext().startActivity(new Intent(getContext(),GameOverActivity.class));
+//                paintbrush.setColor(Color.WHITE);
+//                canvas.drawText("WINNER", screenHeight / 2,screenWidth / 2,paintbrush);
+//
+//            }
 
 
         }
@@ -450,6 +461,10 @@ public class GameEngine extends SurfaceView implements Runnable {
             canvas.drawRect(e14.getHitbox(),paintbrush);
             canvas.drawBitmap(e15.getImage(), e13.getxPosition(), e13.getyPosition(),paintbrush);
             canvas.drawRect(e15.getHitbox(),paintbrush);
+            canvas.drawBitmap(e16.getImage(), e13.getxPosition(), e13.getyPosition(),paintbrush);
+            canvas.drawRect(e15.getHitbox(),paintbrush);
+            canvas.drawBitmap(e17.getImage(), e13.getxPosition(), e13.getyPosition(),paintbrush);
+            canvas.drawRect(e15.getHitbox(),paintbrush);
             canvas.drawBitmap(e20.getImage(), e13.getxPosition(), e13.getyPosition(),paintbrush);
             canvas.drawRect(e20.getHitbox(),paintbrush);
             canvas.drawBitmap(e2.getImage(), e17.getxPosition(), e17.getyPosition(),paintbrush);
@@ -523,7 +538,7 @@ public class GameEngine extends SurfaceView implements Runnable {
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_MOVE:
-                this.player.spawnBullet();
+
 
                 player.x = (int) event.getX();
                 player.y = (int) event.getY();
@@ -531,7 +546,8 @@ public class GameEngine extends SurfaceView implements Runnable {
                 Log.d("PUSH", "PERSON CLICKED AT: (" + event.getX() + "," + event.getY() + ")");
                 fingerAction = "mousedown";
 //                    this.player.spawnBullet();
-                this.enemy.spawnBullet();
+//                this.enemy.spawnBullet();
+                this.player.spawnBullet();
                 break;
 
         }
